@@ -1,4 +1,3 @@
-# ETH-AVAX-module-4
 Degen Token (DEGEN) ERC-20 Contract
 Degen Token (DEGEN) is an example ERC-20 token contract built on the Ethereum blockchain. It showcases the basic functionality of an ERC-20 token, allowing users to transfer, mint, and burn tokens. The contract also includes an ownership mechanism to control certain functions.
 
