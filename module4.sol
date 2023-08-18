@@ -12,6 +12,7 @@ contract DegenToken {
 
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
+    event Redemption(address indexed user, uint256 prizeId, uint256 cost);
 
     constructor(uint256 initialSupply) {
         totalSupply = initialSupply * 10**uint256(decimals);
@@ -49,4 +50,17 @@ contract DegenToken {
         emit Transfer(from, to, value);
         return true;
     }
+
+    function redeem(uint256 prizeId, uint256 cost) external returns (bool) {
+        require(cost > 0, "Invalid cost");
+        require(cost <= balanceOf[msg.sender], "Insufficient balance");
+
+        // Implement your prize selection logic here
+        // For example, emit a Redemption event and deduct the cost from the user's balance
+        emit Redemption(msg.sender, prizeId, cost);
+        balanceOf[msg.sender] -= cost;
+
+        return true;
+    }
 }
+
